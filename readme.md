@@ -6,6 +6,10 @@
 
 Easy Launcher For Servers Of Minecraft. ELFSOM! it is a way of allowing server owners distribute modpacks to their player!
 
+<p align="center">
+  <img src="/res/window.png">
+</p>
+
 What it basically Allows you to do is updating the mods of your users dynamically with a launcher that you will be able to control! You will be able to remove & add mods like it is some kind of RPG Game!
 
 Note that this does not replace the old minecraft launcher, it is just as launcher for the launcher! But before launching the minecraft launcher the ELFSOM (This Launcher) will sync mods files with that of your server!
