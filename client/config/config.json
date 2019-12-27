@@ -1,0 +1,11 @@
+{
+  "server_host":"127.0.0.1",
+  "port":3741,
+  "window_title":"ELFSOM Laucnher",
+  "server_url": "https://minecraft.gamepedia.com/Minecraft_launcher",
+  "minecraft_files_skip_checks":["/saves","/logs","/versions/1.7.10","/assets","/libraries", "/servers.dat", "/options.txt"],
+  "minecraft_files_download_only":["/launcher_profiles.json"],
+  "launcher_extra_buttons":[{"name":"Website", "type":"link", "url":"https://www.google.com"}],
+  "minecraft_server_details":"127.0.0.1:25565"
+
+}
