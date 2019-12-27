@@ -4,19 +4,19 @@
   <img src="/res/logo.png">
 </p>
 
-Easy Launcher For Servers Of Minecraft. ELFSOM! it is a way of allowing server owners distribute modpacks to their player!
+Easy Launcher For Servers Of Minecraft. ELFSOM! it is a way of allowing server owners distribute mods to their players!
 
 <p align="center">
   <img src="/res/window.png">
 </p>
 
-What it basically Allows you to do is updating the mods of your users dynamically with a launcher that you will be able to control! You will be able to remove & add mods like it is some kind of RPG Game!
+What basically Allows you to do, is updating the mods of your users dynamically with a launcher that you will be able to control! You will be able to remove & add mods like it is some kind of RPG Game!
 
-Note that this does not replace the old minecraft launcher, it is just as launcher for the launcher! But before launching the minecraft launcher the ELFSOM (This Launcher) will sync mods files with that of your server!
+Note that this does not replace the old minecraft launcher, it is just as launcher for the launcher! But before launching the minecraft launcher the ELFSOM (This Launcher) will sync mod files with that of your server!
 
 # How can I use this on my server?
 
-Great Question! First you will have to setup the the server instance of the launcher!
+Great Question! First you will have to setup the server instance of the launcher!
 
 This will allow the launcher to connect to the server and check/sync/update the necessary files! After that you do not have to do anything else!
 
@@ -96,8 +96,8 @@ If you have no idea what to put in there put the following:
 }
 ```
 
-Download the forge windows installer for their official website, Select install client and direct the installer to the minecraft_files folder and then install it!
-That was it. You have now installed forge and all your users will have that same version on their minecraft if they start it from your (ELFSOM) launcher!
+Download the forge windows installer from their official website, Select install client and direct the installer to the minecraft_files folder and then install it!
+That was it. You have now installed forge and all your users will have that same version on their minecraft instance if they start it from your (ELFSOM) launcher!
 
 Now you can start adding mods and making any configurations you want! You will probably copy the mods that exist inside your server mods folder to minecraft_files/mods and you will do the same with configurations!
 
@@ -121,7 +121,7 @@ Although this is optional, again if you have no idea what to put there put the f
 
 The server.py (or server, in general) needs restart every time you change the files! I designed it this way because I believed it uses less resources and therefore it is better optimized!
 
-Do not place you minecraft server inside the minecraft_files folder. Unless you want all your users to end up with a copy of the server!!!
+Do not place your minecraft server inside the minecraft_files folder. Unless you want all your users to end up with a copy of the server!!!
 
 You should copy on the launcher's server the mods & other files, do not mix everything together, it is a bad idea!!!
 
