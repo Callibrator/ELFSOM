@@ -17,35 +17,35 @@ class DownloadManager(QThread):
         time.sleep(5)
         i = 0
         completed = False
-        # while i < 3:
-        #     try:
-        c = self.client
-        self.message.emit("Connecting To Server")
-        c.connect()
+        while i < 3:
+            try:
+                c = self.client
+                self.message.emit("Connecting To Server")
+                c.connect()
 
-        self.message.emit("Checking Files")
-        update_files = c.get_updates()
-        self.message.emit("Performing Upgrade")
-        c.do_upgrades(update_files, self.progress)
+                self.message.emit("Checking Files")
+                update_files = c.get_updates()
+                self.message.emit("Performing Upgrade")
+                c.do_upgrades(update_files, self.progress)
 
-        self.message.emit("Completed")
-        self.enableStart.emit(True)
-        completed = True
-        #     except WindowsError:
-        #         i += 1
-        #         self.gui.progressBar.setFormat("Failed To Connect, Trying Again...")
-        #         time.sleep(5)
-        #         completed = False
-        #     except:
-        #         i += 1
-        #         self.gui.progressBar.setFormat("Update Failed, Trying Again...")
-        #         time.sleep(5)
-        #         completed = False
-        #
-        #     if completed:
-        #         break
+                self.message.emit("Completed")
+                self.enableStart.emit(True)
+                completed = True
+            except WindowsError:
+                i += 1
+                self.message.emit("Failed To Connect, Trying Again...")
+                time.sleep(5)
+                completed = False
+            except:
+                i += 1
+                self.message.emit("Update Failed, Trying Again...")
+                time.sleep(5)
+                completed = False
 
-        #if not completed:
-        #    self.gui.progressBar.setFormat("Update Failed!!! Try Again Later")
-        #    self.gui.startButton.setEnabled(True)
+            if completed:
+                break
+
+        if not completed:
+            self.message.emit("Update Failed!!! Try Again Later")
+            self.enableStart.emit(True)
 

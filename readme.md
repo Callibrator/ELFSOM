@@ -193,3 +193,9 @@ I will leave some notes for the following:
 * minecraft_files_download_only There are files that exist on the server but are different in each client too. This files will be contianed here! What it does is the following: if the file does not exist, it will download it normally but if exists, even if it is different from the one on the server, it wont update it! This can be usufull for default configurations while still allowing the users the freedom to make local changes! The best example is the launcher_profiles.json! We can use it to make the life of the user easier by pre-selecting versions but still allowing him to play with minecraft arguments if he likes!
 * launcher_extra_buttons This is usefull because you can add buttons to your server web site or an online eshop with minecraft skins or even products! You can have multiple buttons
 
+### PyInstaller Hint
+
+```
+pyinstaller --onefile --hidden-import PyQt5.sip --windowed -i icon.ico .\launcher.py
+
+```
