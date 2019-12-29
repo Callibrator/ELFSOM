@@ -24,10 +24,11 @@ class DownloadManager(QThread):
                 c.connect()
 
                 self.message.emit("Checking Files")
-                update_files = c.get_updates()
+                update_files = c.get_updates(self.progress)
                 self.message.emit("Performing Upgrade")
+                print("Performing_Update")
                 c.do_upgrades(update_files, self.progress)
-
+                print("Update Compileted")
                 self.message.emit("Completed")
                 self.enableStart.emit(True)
                 completed = True

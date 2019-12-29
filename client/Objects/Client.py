@@ -4,6 +4,7 @@ from get_files_tree import get_files_tree
 from get_file_details import get_file_details
 from download_file import download_file
 from remove_empty_folders import  remove_empty_folders
+from diagnose_update import diagnose_update
 import json
 
 class Client:
@@ -21,10 +22,16 @@ class Client:
         if not os.path.isdir(minecraft_folder):
             os.mkdir(minecraft_folder)
 
-    def get_all_files(self):
+    def get_all_files(self,progressBar = None):
         file_details = []
-        for f in get_files_tree(self.minecraft_folder):
+        all_files = get_files_tree(self.minecraft_folder)
+        len_all = len(all_files)
+        i = 0
+        for f in all_files:
             file_details.append(get_file_details(f,self.minecraft_folder))
+            if progressBar != None:
+                progressBar.emit(i,len_all)
+            i += 1
 
         return file_details
 
@@ -33,8 +40,8 @@ class Client:
         self.socket = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
         self.socket.connect((self.host, self.port))
 
-    def get_updates(self):
-        file_details = self.get_all_files()
+    def get_updates(self,progressBar=None):
+        file_details = self.get_all_files(progressBar)
 
         data = {
             "details":True,
@@ -54,7 +61,11 @@ class Client:
         ret = self.socket.recv(2048).decode()
         self.socket.sendall(b"ok")
 
-        new_data = self.socket.recv(int(ret)).decode()
+        total_data = int(ret)
+
+        new_data = ""
+        while len(new_data) < total_data:
+            new_data += self.socket.recv(2048).decode()
 
         return json.loads(new_data)
 
@@ -72,7 +83,7 @@ class Client:
         for f in self.download_only_files:
             skip_files_before_update.append(os.path.abspath(self.minecraft_folder + f).lower())
 
-
+        #diagnose_update(files)
         for f in files:
             fpath = self.minecraft_folder + f["launcher_path"]
 

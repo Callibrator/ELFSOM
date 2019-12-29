@@ -3,6 +3,7 @@
 import threading
 import json
 from check_server_file import check_server_file
+import os
 
 from send_file import send_file
 
@@ -18,7 +19,8 @@ class Client(threading.Thread):
     def compare_files(self,files):
         status = []
 
-
+        for f in self.file_details:
+            f["launcher_path"] = f["launcher_path"].replace("/", os.sep).replace("\\", os.sep)
 
         for lf in self.file_details:
             found = False
@@ -73,8 +75,11 @@ class Client(threading.Thread):
 
             self.s.sendall(b"ok")
 
-            serializedData = self.s.recv(dataLength)
-            data = json.loads(serializedData)
+            serializedData = ""
+            while len(serializedData) < dataLength:
+                serializedData += self.s.recv(dataLength)
+
+            data = json.loads(serializedData.decode())
 
             if "details" in data:
                 ret = self.compare_files(data["files"])
