@@ -153,6 +153,8 @@ All necessary files are synced everytime the launcher starts to ensure that ever
 
 Firstly you need a compiled version of the client (unless you want your users to run it with python every time!) You can either download a compiled version or just compile it yourself
 
+You can download the latest compiled release of launcher from [here](https://github.com/Callibrator/ELFSOM/releases/tag/V1.0).
+
 After you have your compiled version of the client, you have to configure it!
 You can make any changes to the configuration by chaninging the json file name config.json inside the config folder of the client!
 
